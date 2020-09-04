@@ -14,7 +14,7 @@ const me: Me = {
   age: 23,
   country: 'Argentina',
   province: 'Córdoba',
-  family: ['Matias', 'aldana', 'marcelo'],
+  family: ['A', 'B', 'C'],
 };
 
 export default me;

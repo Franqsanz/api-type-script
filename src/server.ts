@@ -5,6 +5,7 @@ import index from './route';
 
 const app: Application = express();
 
+app.use(express.json());
 app.use(CORS());
 app.use('/', index);
 
