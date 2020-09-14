@@ -1,4 +1,4 @@
-// emulated data base
+// Emulated data base
 interface Me {
   name: string;
   lastname: string;

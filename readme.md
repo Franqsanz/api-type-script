@@ -1,3 +1,3 @@
 # API TypeScript Demo
 
-Aprendiendo... TypeScript 🧐
+Aprendiendo TypeScript 🧐
