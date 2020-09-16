@@ -2,25 +2,45 @@
 interface Fruits {
   Fruits: Array<any>;
 }
+interface Countries {
+  Countries: Array<any>;
+}
 
 const fruits: Fruits = {
   Fruits: [
     {
       id: 1,
-      Fruit: 'Banana',
-      Climate: 'Damp',
+      fruit: 'Banana',
+      climate: 'Damp',
     },
     {
       id: 2,
-      Fruit: 'Apple',
-      Climate: 'Cold',
+      fruit: 'Apple',
+      climate: 'Cold',
     },
     {
       id: 3,
-      Fruit: 'Lemon',
-      Climate: 'Semi Tropical',
+      fruit: 'Lemon',
+      climate: 'Semi Tropical',
     },
   ],
 };
 
-export default fruits;
+const countries: Countries = {
+  Countries: [
+    {
+      id: 1,
+      name: 'Belgium',
+    },
+    {
+      id: 2,
+      name: 'Germany',
+    },
+    {
+      id: 3,
+      name: 'Italy',
+    },
+  ],
+};
+
+export default { fruits, countries };

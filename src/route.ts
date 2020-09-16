@@ -1,31 +1,30 @@
 import express, { Router, Request, Response } from 'express';
-import fruits from './db';
+import routes from './routesCtrl';
+
+const { home } = routes;
+const { getFruits } = routes;
+const { getFruitsOne } = routes;
+const { postFruits } = routes;
+const { getCountries } = routes;
+const { getCountriesOne } = routes;
+const { postCountries } = routes;
 
 const router: Router = express();
 
-router.get('/', (req: Request, res: Response) => {
-  res.send('API Demo TypeScript');
-});
+// Index
+router.get('/', home);
 
-router.get('/fruits', (req: Request, res: Response) => res.send(fruits));
+// Fruits
+router.get('/fruits', getFruits);
+router.get('/fruits/:id', getFruitsOne);
+router.post('/fruits', postFruits);
 
-router.get('/fruits/:id', (req: Request, res: Response) => {
-  const { id } = req.params;
-  const search = fruits.Fruits.find((fruit) => fruit.id == id);
-  res.send(search);
-});
+// Countries
+router.get('/countries', getCountries);
+router.get('/countries/:id', getCountriesOne);
+router.post('/countries', postCountries);
 
-router.post('/fruits', (req: Request, res: Response) => {
-  const newFruit = {
-    id: 4,
-    Fruit: 'Pear',
-    Climate: 'Warm and Humid',
-  };
-
-  fruits.Fruits.push(newFruit);
-  res.send(fruits);
-});
-
+// 404
 router.get('*', (req: Request, res: Response) => {
   res.status(404).send('404 page not found');
 });
