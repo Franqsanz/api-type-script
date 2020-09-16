@@ -18,6 +18,7 @@ module.exports = {
   plugins: ['@typescript-eslint', 'prettier'],
   rules: {
     'no-console': 0,
+    eqeqeq: 0,
     'import/no-unresolved': 0,
     'import/extensions': 0,
     'node/no-missing-import': 0,

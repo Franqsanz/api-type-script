@@ -1,20 +1,26 @@
 // Emulated data base
-interface Me {
-  name: string;
-  lastname: string;
-  age: number;
-  country: string;
-  province: string;
-  family: Array<string>;
+interface Fruits {
+  Fruits: Array<any>;
 }
 
-const me: Me = {
-  name: 'Franco',
-  lastname: 'Sánchez',
-  age: 23,
-  country: 'Argentina',
-  province: 'Córdoba',
-  family: ['A', 'B', 'C'],
+const fruits: Fruits = {
+  Fruits: [
+    {
+      id: 1,
+      Fruit: 'Banana',
+      Climate: 'Damp',
+    },
+    {
+      id: 2,
+      Fruit: 'Apple',
+      Climate: 'Cold',
+    },
+    {
+      id: 3,
+      Fruit: 'Lemon',
+      Climate: 'Semi Tropical',
+    },
+  ],
 };
 
-export default me;
+export default fruits;
