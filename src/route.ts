@@ -1,15 +1,17 @@
 import express, { Router, Request, Response } from 'express';
 import routes from './routesCtrl';
 
-const { home } = routes;
-const { getFruits } = routes;
-const { getFruitsOne } = routes;
-const { postFruits } = routes;
-const { getCountries } = routes;
-const { getCountriesOne } = routes;
-const { postCountries } = routes;
-
 const router: Router = express();
+
+const {
+  home,
+  getFruits,
+  getFruitsOne,
+  postFruits,
+  getCountries,
+  getCountriesOne,
+  postCountries,
+} = routes;
 
 // Index
 router.get('/', home);

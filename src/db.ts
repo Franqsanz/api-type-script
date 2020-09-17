@@ -2,6 +2,7 @@
 interface Fruits {
   Fruits: Array<any>;
 }
+
 interface Countries {
   Countries: Array<any>;
 }

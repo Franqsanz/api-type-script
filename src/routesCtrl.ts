@@ -3,21 +3,20 @@
 import { Request, Response } from 'express';
 import db from './db';
 
-const { fruits } = db;
-const { countries } = db;
+const { fruits, countries } = db;
 
 function home(req: Request, res: Response) {
   res.send(`
     <section>
       <h1>API REST TypeScript Demo</h1>
       <h2>Fruits</h2>
-      <a href="http://localhost:3040/fruits">
-        http://localhost:3040/fruits
+      <a href="http://localhost:3040/api/fruits">
+        http://localhost:3040/api/fruits
       </a>
       <br>
       <h2>Countries</h2>
-      <a href="http://localhost:3040/countries">
-        http://localhost:3040/countries
+      <a href="http://localhost:3040/api/countries">
+        http://localhost:3040/api/countries
       </a>
     </section>
   `);
