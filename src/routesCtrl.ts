@@ -4,6 +4,8 @@ import { Request, Response } from 'express';
 import db from './db';
 
 const { fruits, countries } = db;
+const { Fruits } = fruits;
+const { Countries } = countries;
 
 function home(req: Request, res: Response) {
   res.send(`
@@ -30,8 +32,21 @@ function getFruits(req: Request, res: Response) {
 function getFruitsOne(req: Request, res: Response) {
   const { id } = req.params;
 
-  const search = fruits.Fruits.find((fruit) => fruit.id == id);
+  const search = Fruits.find((fruit) => fruit.id == id);
   res.send(search);
+}
+
+function putFruits(req: Request, res: Response) {
+  const { id } = req.params;
+  const { body } = req;
+
+  const index = Fruits.find((fruit) => fruit.id == id);
+  if (index) {
+    Object.keys(body).forEach((key) => {
+      index[key] = body[key];
+    });
+  }
+  res.send(index);
 }
 
 function postFruits(req: Request, res: Response) {
@@ -41,7 +56,17 @@ function postFruits(req: Request, res: Response) {
     Climate: 'Wrm and Humid',
   };
 
-  fruits.Fruits.push(newFruit);
+  Fruits.push(newFruit);
+  res.send(fruits);
+}
+
+function deleteFruits(req: Request, res: Response) {
+  const { id } = req.params;
+
+  const deleteFruit = Fruits.findIndex((fruit) => fruit.id == id);
+  if (deleteFruit > -1) {
+    Fruits.splice(deleteFruit, 1);
+  }
   res.send(fruits);
 }
 
@@ -53,8 +78,21 @@ function getCountries(req: Request, res: Response) {
 function getCountriesOne(req: Request, res: Response) {
   const { id } = req.params;
 
-  const search = countries.Countries.find((country) => country.id == id);
+  const search = Countries.find((country) => country.id == id);
   res.send(search);
+}
+
+function putCountries(req: Request, res: Response) {
+  const { id } = req.params;
+  const { body } = req;
+
+  const index = Countries.find((country) => country.id == id);
+  if (index) {
+    Object.keys(body).forEach((key) => {
+      index[key] = body[key];
+    });
+  }
+  res.send(index);
 }
 
 function postCountries(req: Request, res: Response) {
@@ -64,7 +102,17 @@ function postCountries(req: Request, res: Response) {
     Climate: 'Wrm and Humid',
   };
 
-  countries.Countries.push(newCountry);
+  Countries.push(newCountry);
+  res.send(countries);
+}
+
+function deleteCountries(req: Request, res: Response) {
+  const { id } = req.params;
+
+  const deleteCountrie = Countries.findIndex((country) => country.id == id);
+  if (deleteCountrie > -1) {
+    Countries.splice(deleteCountrie, 1);
+  }
   res.send(countries);
 }
 
@@ -72,9 +120,13 @@ export default {
   home,
   getFruits,
   getFruitsOne,
+  putFruits,
   postFruits,
+  deleteFruits,
 
   getCountries,
   getCountriesOne,
+  putCountries,
   postCountries,
+  deleteCountries,
 };
