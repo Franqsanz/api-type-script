@@ -23,6 +23,7 @@ module.exports = {
     'import/extensions': 0,
     'node/no-missing-import': 0,
     'comma-dangle': 0,
+    'no-return-assign': 0,
     'linebreak-style': 0,
     'function-paren-newline': 0,
     'implicit-arrow-linebreak': 1,

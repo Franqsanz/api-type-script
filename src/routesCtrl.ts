@@ -1,9 +1,8 @@
 /* eslint-disable prettier/prettier */
 
 import { Request, Response } from 'express';
-import db from './db';
+import { fruits, countries } from './db';
 
-const { fruits, countries } = db;
 const { Fruits } = fruits;
 const { Countries } = countries;
 
@@ -41,11 +40,7 @@ function putFruits(req: Request, res: Response) {
   const { body } = req;
 
   const index = Fruits.find((fruit) => fruit.id == id);
-  if (index) {
-    Object.keys(body).forEach((key) => {
-      index[key] = body[key];
-    });
-  }
+  if (index) Object.keys(body).forEach((key) => (index[key] = body[key]));
   res.send(index);
 }
 
@@ -64,9 +59,7 @@ function deleteFruits(req: Request, res: Response) {
   const { id } = req.params;
 
   const deleteFruit = Fruits.findIndex((fruit) => fruit.id == id);
-  if (deleteFruit > -1) {
-    Fruits.splice(deleteFruit, 1);
-  }
+  if (deleteFruit > -1) Fruits.splice(deleteFruit, 1);
   res.send(fruits);
 }
 
@@ -87,11 +80,7 @@ function putCountries(req: Request, res: Response) {
   const { body } = req;
 
   const index = Countries.find((country) => country.id == id);
-  if (index) {
-    Object.keys(body).forEach((key) => {
-      index[key] = body[key];
-    });
-  }
+  if (index) Object.keys(body).forEach((key) => (index[key] = body[key]));
   res.send(index);
 }
 
@@ -110,20 +99,17 @@ function deleteCountries(req: Request, res: Response) {
   const { id } = req.params;
 
   const deleteCountrie = Countries.findIndex((country) => country.id == id);
-  if (deleteCountrie > -1) {
-    Countries.splice(deleteCountrie, 1);
-  }
+  if (deleteCountrie > -1) Countries.splice(deleteCountrie, 1);
   res.send(countries);
 }
 
-export default {
+export {
   home,
   getFruits,
   getFruitsOne,
   putFruits,
   postFruits,
   deleteFruits,
-
   getCountries,
   getCountriesOne,
   putCountries,

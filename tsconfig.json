@@ -5,10 +5,10 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "strict": true,
+    "pretty": true,
+    "sourceMap": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
   },
   "include": [
     "src/*.ts"

@@ -44,4 +44,4 @@ const countries: Countries = {
   ],
 };
 
-export default { fruits, countries };
+export { fruits, countries };

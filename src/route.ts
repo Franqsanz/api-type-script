@@ -1,22 +1,19 @@
 import express, { Router, Request, Response } from 'express';
-import routes from './routesCtrl';
-
-const router: Router = express();
-
-const {
+import {
   home,
   getFruits,
   getFruitsOne,
   putFruits,
   postFruits,
   deleteFruits,
-
   getCountries,
   getCountriesOne,
   putCountries,
   postCountries,
   deleteCountries,
-} = routes;
+} from './routesCtrl';
+
+const router: Router = express();
 
 // Index
 router.get('/', home);
