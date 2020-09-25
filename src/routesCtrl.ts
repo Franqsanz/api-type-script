@@ -45,10 +45,12 @@ function putFruits(req: Request, res: Response) {
 }
 
 function postFruits(req: Request, res: Response) {
+  const { body } = req;
+
   const newFruit = {
-    id: 4,
-    Fruit: 'Pear',
-    Climate: 'Wrm and Humid',
+    id: body.id,
+    fruit: body.fruit,
+    climate: body.climate,
   };
 
   Fruits.push(newFruit);
@@ -85,10 +87,11 @@ function putCountries(req: Request, res: Response) {
 }
 
 function postCountries(req: Request, res: Response) {
+  const { body } = req;
+
   const newCountry = {
-    id: 4,
-    Fruit: 'Pear',
-    Climate: 'Wrm and Humid',
+    id: body.id,
+    name: body.name,
   };
 
   Countries.push(newCountry);

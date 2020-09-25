@@ -5,9 +5,11 @@ import index from './route';
 
 const app: Application = express();
 
+const PORT = process.env.PORT || 3040;
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(CORS());
 app.use('/api', index);
 
-app.listen(3040, () => console.log('http://localhost:3040/api'));
+app.listen(PORT, () => console.log(`http://localhost:${PORT}/api`));
