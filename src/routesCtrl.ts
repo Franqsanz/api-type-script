@@ -31,8 +31,10 @@ function getFruits(req: Request, res: Response) {
 function getFruitsOne(req: Request, res: Response) {
   const { id } = req.params;
 
-  const search = Fruits.find((fruit) => fruit.id == id);
-  res.send(search);
+  const fruitOne = Fruits.find((fruit) => fruit.id == id);
+
+  if (!fruitOne) res.status(404).send('Is fruit doesn′t exist');
+  res.send(fruitOne);
 }
 
 function putFruits(req: Request, res: Response) {
@@ -73,8 +75,10 @@ function getCountries(req: Request, res: Response) {
 function getCountriesOne(req: Request, res: Response) {
   const { id } = req.params;
 
-  const search = Countries.find((country) => country.id == id);
-  res.send(search);
+  const countryOne = Countries.find((country) => country.id == id);
+
+  if (!countryOne) res.status(404).send('This country doesn′t exist');
+  res.send(countryOne);
 }
 
 function putCountries(req: Request, res: Response) {
